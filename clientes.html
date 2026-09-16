@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="OrçaPro — gerenciamento de clientes."
+    >
+
+    <title>OrçaPro | Clientes</title>
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+</head>
+
+
+<body>
+
+    <!-- ========================================
+         SIDEBAR
+    ======================================== -->
+
+    <aside class="sidebar">
+
+        <div class="sidebar-logo">
+
+            <a href="index.html">
+                Orça<span>Pro</span>
+            </a>
+
+        </div>
+
+
+        <nav
+            class="sidebar-nav"
+            aria-label="Navegação principal"
+        >
+
+            <ul>
+
+                <li>
+
+                    <a
+                        href="index.html"
+                        class="nav-link"
+                    >
+
+                        <span class="nav-icon">
+                            ▦
+                        </span>
+
+                        <span>
+                            Dashboard
+                        </span>
+
+                    </a>
+
+                </li>
+
+
+                <li>
+
+                    <a
+                        href="orcamentos.html"
+                        class="nav-link"
+                    >
+
+                        <span class="nav-icon">
+                            ▤
+                        </span>
+
+                        <span>
+                            Orçamentos
+                        </span>
+
+                    </a>
+
+                </li>
+
+
+                <li>
+
+                    <a
+                        href="clientes.html"
+                        class="nav-link active"
+                        aria-current="page"
+                    >
+
+                        <span class="nav-icon">
+                            ♙
+                        </span>
+
+                        <span>
+                            Clientes
+                        </span>
+
+                    </a>
+
+                </li>
+
+
+                <li>
+
+                    <a
+                        href="materiais.html"
+                        class="nav-link"
+                    >
+
+                        <span class="nav-icon">
+                            ▥
+                        </span>
+
+                        <span>
+                            Materiais
+                        </span>
+
+                    </a>
+
+                </li>
+
+            </ul>
+
+        </nav>
+
+
+        <div class="sidebar-bottom">
+
+            <a
+                href="#"
+                class="nav-link"
+            >
+
+                <span class="nav-icon">
+                    ⚙
+                </span>
+
+                <span>
+                    Configurações
+                </span>
+
+            </a>
+
+        </div>
+
+    </aside>
+
+
+    <!-- ========================================
+         CONTEÚDO PRINCIPAL
+    ======================================== -->
+
+    <main class="main-content">
+
+        <!-- HEADER -->
+
+        <header class="topbar">
+
+            <div class="topbar-title">
+
+                <p class="greeting">
+                    Gerenciamento
+                </p>
+
+                <h1>
+                    Clientes
+                </h1>
+
+            </div>
+
+
+            <div class="topbar-user">
+
+                <div class="user-avatar">
+                    A
+                </div>
+
+                <div class="user-info">
+
+                    <strong>
+                        Amanda
+                    </strong>
+
+                    <span>
+                        Administrador
+                    </span>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- ========================================
+             CLIENTES
+        ======================================== -->
+
+        <section class="dashboard">
+
+            <div class="dashboard-heading">
+
+                <div>
+
+                    <h2>
+                        Todos os clientes
+                    </h2>
+
+                    <p>
+                        Cadastre, consulte e gerencie seus clientes.
+                    </p>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="button button-primary"
+                    id="novo-cliente"
+                >
+                    + Novo cliente
+                </button>
+
+            </div>
+
+
+            <!-- ========================================
+                 BUSCA
+            ======================================== -->
+
+            <div class="quotes-filters">
+
+                <div class="search-box">
+
+                    <label
+                        for="buscar-cliente"
+                        class="sr-only"
+                    >
+                        Buscar cliente
+                    </label>
+
+                    <input
+                        type="search"
+                        id="buscar-cliente"
+                        placeholder="Buscar por nome, telefone ou e-mail..."
+                        autocomplete="off"
+                    >
+
+                </div>
+
+            </div>
+
+
+            <!-- ========================================
+                 TABELA
+            ======================================== -->
+
+            <section class="recent-quotes">
+
+                <div class="section-header">
+
+                    <div>
+
+                        <h2>
+                            Lista de clientes
+                        </h2>
+
+                        <p id="resultado-clientes">
+                            0 clientes encontrados
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="table-wrapper">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    Nº
+                                </th>
+
+                                <th>
+                                    Cliente
+                                </th>
+
+                                <th>
+                                    Telefone
+                                </th>
+
+                                <th>
+                                    E-mail
+                                </th>
+
+                                <th>
+                                    Cidade
+                                </th>
+
+                                <th>
+                                    Ações
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody id="clientes-lista">
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </section>
+
+        </section>
+
+    </main>
+
+
+    <!-- ========================================
+         MODAL — NOVO / EDITAR CLIENTE
+    ======================================== -->
+
+    <div
+        class="modal-overlay"
+        id="modal-cliente"
+        aria-hidden="true"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modal-titulo-cliente"
+    >
+
+        <div class="modal">
+
+            <div class="modal-header">
+
+                <div>
+
+                    <p class="modal-eyebrow">
+                        OrçaPro
+                    </p>
+
+                    <h2 id="modal-titulo-cliente">
+                        Novo cliente
+                    </h2>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="modal-close"
+                    id="fechar-modal-cliente"
+                    aria-label="Fechar"
+                >
+                    ×
+                </button>
+
+            </div>
+
+
+            <form id="form-cliente">
+
+                <!-- ========================================
+                     NOME
+                ======================================== -->
+
+                <div class="form-group">
+
+                    <label for="cliente-nome">
+                        Nome completo
+                    </label>
+
+                    <input
+                        type="text"
+                        id="cliente-nome"
+                        name="nome"
+                        placeholder="Nome do cliente"
+                        autocomplete="name"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- ========================================
+                     TELEFONE / EMAIL
+                ======================================== -->
+
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label for="cliente-telefone">
+                            Telefone
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="cliente-telefone"
+                            name="telefone"
+                            placeholder="(11) 99999-9999"
+                            autocomplete="tel"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="cliente-email">
+                            E-mail
+                        </label>
+
+                        <input
+                            type="email"
+                            id="cliente-email"
+                            name="email"
+                            placeholder="cliente@email.com"
+                            autocomplete="email"
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <!-- ========================================
+                     CIDADE / ESTADO
+                ======================================== -->
+
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label for="cliente-cidade">
+                            Cidade
+                        </label>
+
+                        <input
+                            type="text"
+                            id="cliente-cidade"
+                            name="cidade"
+                            placeholder="São Paulo"
+                            autocomplete="address-level2"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="cliente-estado">
+                            Estado
+                        </label>
+
+                        <select
+                            id="cliente-estado"
+                            name="estado"
+                            autocomplete="address-level1"
+                        >
+
+                            <option value="">
+                                Selecione
+                            </option>
+
+                            <option value="AC">
+                                Acre
+                            </option>
+
+                            <option value="AL">
+                                Alagoas
+                            </option>
+
+                            <option value="AP">
+                                Amapá
+                            </option>
+
+                            <option value="AM">
+                                Amazonas
+                            </option>
+
+                            <option value="BA">
+                                Bahia
+                            </option>
+
+                            <option value="CE">
+                                Ceará
+                            </option>
+
+                            <option value="DF">
+                                Distrito Federal
+                            </option>
+
+                            <option value="ES">
+                                Espírito Santo
+                            </option>
+
+                            <option value="GO">
+                                Goiás
+                            </option>
+
+                            <option value="MA">
+                                Maranhão
+                            </option>
+
+                            <option value="MT">
+                                Mato Grosso
+                            </option>
+
+                            <option value="MS">
+                                Mato Grosso do Sul
+                            </option>
+
+                            <option value="MG">
+                                Minas Gerais
+                            </option>
+
+                            <option value="PA">
+                                Pará
+                            </option>
+
+                            <option value="PB">
+                                Paraíba
+                            </option>
+
+                            <option value="PR">
+                                Paraná
+                            </option>
+
+                            <option value="PE">
+                                Pernambuco
+                            </option>
+
+                            <option value="PI">
+                                Piauí
+                            </option>
+
+                            <option value="RJ">
+                                Rio de Janeiro
+                            </option>
+
+                            <option value="RN">
+                                Rio Grande do Norte
+                            </option>
+
+                            <option value="RS">
+                                Rio Grande do Sul
+                            </option>
+
+                            <option value="RO">
+                                Rondônia
+                            </option>
+
+                            <option value="RR">
+                                Roraima
+                            </option>
+
+                            <option value="SC">
+                                Santa Catarina
+                            </option>
+
+                            <option value="SP">
+                                São Paulo
+                            </option>
+
+                            <option value="SE">
+                                Sergipe
+                            </option>
+
+                            <option value="TO">
+                                Tocantins
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ========================================
+                     ENDEREÇO
+                ======================================== -->
+
+                <div class="form-group">
+
+                    <label for="cliente-endereco">
+                        Endereço
+                    </label>
+
+                    <input
+                        type="text"
+                        id="cliente-endereco"
+                        name="endereco"
+                        placeholder="Rua, número, complemento..."
+                        autocomplete="street-address"
+                    >
+
+                </div>
+
+
+                <!-- ========================================
+                     OBSERVAÇÕES
+                ======================================== -->
+
+                <div class="form-group">
+
+                    <label for="cliente-observacoes">
+                        Observações
+                    </label>
+
+                    <textarea
+                        id="cliente-observacoes"
+                        name="observacoes"
+                        rows="4"
+                        placeholder="Informações adicionais sobre o cliente..."
+                    ></textarea>
+
+                </div>
+
+
+                <!-- ========================================
+                     AÇÕES
+                ======================================== -->
+
+                <div class="modal-actions">
+
+                    <button
+                        type="button"
+                        class="button button-secondary"
+                        id="cancelar-modal-cliente"
+                    >
+                        Cancelar
+                    </button>
+
+
+                    <button
+                        type="submit"
+                        class="button button-primary"
+                    >
+                        Salvar cliente
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <script src="js/clientes.js"></script>
+
+</body>
+
+</html>

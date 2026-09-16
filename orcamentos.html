@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="OrçaPro — gerenciamento de orçamentos."
+    >
+
+    <title>OrçaPro | Orçamentos</title>
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+</head>
+
+<body>
+
+    <!-- ================================
+         SIDEBAR
+    ================================= -->
+
+    <aside class="sidebar">
+
+        <div class="sidebar-logo">
+
+            <a href="index.html">
+                Orça<span>Pro</span>
+            </a>
+
+        </div>
+
+
+        <nav
+            class="sidebar-nav"
+            aria-label="Navegação principal"
+        >
+
+            <ul>
+
+                <li>
+
+                    <a
+                        href="index.html"
+                        class="nav-link"
+                    >
+
+                        <span class="nav-icon">▦</span>
+
+                        <span>
+                            Dashboard
+                        </span>
+
+                    </a>
+
+                </li>
+
+
+                <li>
+
+                    <a
+                        href="orcamentos.html"
+                        class="nav-link active"
+                        aria-current="page"
+                    >
+
+                        <span class="nav-icon">▤</span>
+
+                        <span>
+                            Orçamentos
+                        </span>
+
+                    </a>
+
+                </li>
+
+
+                <li>
+
+                    <a
+                        href="clientes.html"
+                        class="nav-link"
+                    >
+
+                        <span class="nav-icon">♙</span>
+
+                        <span>
+                            Clientes
+                        </span>
+
+                    </a>
+
+                </li>
+
+
+                <li>
+
+                    <a
+                        href="materiais.html"
+                        class="nav-link"
+                    >
+
+                        <span class="nav-icon">▥</span>
+
+                        <span>
+                            Materiais
+                        </span>
+
+                    </a>
+
+                </li>
+
+            </ul>
+
+        </nav>
+
+
+        <div class="sidebar-bottom">
+
+            <a
+                href="#"
+                class="nav-link"
+            >
+
+                <span class="nav-icon">⚙</span>
+
+                <span>
+                    Configurações
+                </span>
+
+            </a>
+
+        </div>
+
+    </aside>
+
+
+    <!-- ================================
+         CONTEÚDO PRINCIPAL
+    ================================= -->
+
+    <main class="main-content">
+
+        <header class="topbar">
+
+            <div class="topbar-title">
+
+                <p class="greeting">
+                    Gerenciamento
+                </p>
+
+                <h1>
+                    Orçamentos
+                </h1>
+
+            </div>
+
+
+            <div class="topbar-user">
+
+                <div
+                    class="user-avatar"
+                    aria-hidden="true"
+                >
+                    A
+                </div>
+
+
+                <div class="user-info">
+
+                    <strong>
+                        Amanda
+                    </strong>
+
+                    <span>
+                        Administrador
+                    </span>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- ================================
+             ORÇAMENTOS
+        ================================= -->
+
+        <section class="dashboard">
+
+            <div class="dashboard-heading">
+
+                <div>
+
+                    <h2>
+                        Todos os orçamentos
+                    </h2>
+
+                    <p>
+                        Consulte, edite e gerencie seus orçamentos.
+                    </p>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="button button-primary"
+                    id="novo-orcamento"
+                >
+                    + Novo orçamento
+                </button>
+
+            </div>
+
+
+            <!-- ================================
+                 FILTROS
+            ================================= -->
+
+            <div class="quotes-filters">
+
+                <div class="search-box">
+
+                    <label
+                        for="buscar-orcamento"
+                        class="sr-only"
+                    >
+                        Buscar orçamento
+                    </label>
+
+                    <input
+                        type="search"
+                        id="buscar-orcamento"
+                        name="buscar-orcamento"
+                        placeholder="Buscar por cliente ou número..."
+                    >
+
+                </div>
+
+
+                <div class="status-filter">
+
+                    <label
+                        for="filtro-status"
+                        class="sr-only"
+                    >
+                        Filtrar por status
+                    </label>
+
+                    <select
+                        id="filtro-status"
+                        name="filtro-status"
+                    >
+
+                        <option value="todos">
+                            Todos os status
+                        </option>
+
+                        <option value="Em aberto">
+                            Em aberto
+                        </option>
+
+                        <option value="Aprovado">
+                            Aprovado
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================================
+                 TABELA
+            ================================= -->
+
+            <section class="recent-quotes">
+
+                <div class="section-header">
+
+                    <div>
+
+                        <h2>
+                            Lista de orçamentos
+                        </h2>
+
+                        <p id="resultado-orcamentos">
+                            0 orçamentos encontrados
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="table-wrapper">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    Nº
+                                </th>
+
+                                <th>
+                                    Cliente
+                                </th>
+
+                                <th>
+                                    Data
+                                </th>
+
+                                <th>
+                                    Valor
+                                </th>
+
+                                <th>
+                                    Status
+                                </th>
+
+                                <th>
+                                    Ações
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody id="orcamentos-lista">
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </section>
+
+        </section>
+
+    </main>
+
+
+    <!-- ========================================
+         MODAL — VISUALIZAR ORÇAMENTO
+    ======================================== -->
+
+    <div
+        class="modal-overlay"
+        id="modal-visualizar"
+        aria-hidden="true"
+    >
+
+        <div
+            class="modal"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="titulo-visualizar-orcamento"
+        >
+
+            <div class="modal-header">
+
+                <div>
+
+                    <p class="modal-eyebrow">
+                        Detalhes
+                    </p>
+
+                    <h2 id="titulo-visualizar-orcamento">
+                        Visualizar orçamento
+                    </h2>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="modal-close"
+                    id="fechar-visualizacao"
+                    aria-label="Fechar visualização"
+                >
+                    ×
+                </button>
+
+            </div>
+
+
+            <!-- DADOS PRINCIPAIS -->
+
+            <div class="quote-details">
+
+                <div class="detail-item">
+
+                    <span class="detail-label">
+                        Número
+                    </span>
+
+                    <strong id="visualizar-id">
+                        —
+                    </strong>
+
+                </div>
+
+
+                <div class="detail-item">
+
+                    <span class="detail-label">
+                        Cliente
+                    </span>
+
+                    <strong id="visualizar-cliente">
+                        —
+                    </strong>
+
+                </div>
+
+
+                <div class="detail-item">
+
+                    <span class="detail-label">
+                        Data
+                    </span>
+
+                    <strong id="visualizar-data">
+                        —
+                    </strong>
+
+                </div>
+
+
+                <div class="detail-item">
+
+                    <span class="detail-label">
+                        Valor
+                    </span>
+
+                    <strong id="visualizar-valor">
+                        —
+                    </strong>
+
+                </div>
+
+
+                <div class="detail-item">
+
+                    <span class="detail-label">
+                        Status
+                    </span>
+
+                    <strong
+                        id="visualizar-status"
+                        class="status"
+                    >
+                        —
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <!-- ========================================
+                 ITENS DO ORÇAMENTO
+            ======================================== -->
+
+            <div class="visualizar-itens">
+
+                <div class="section-header">
+
+                    <div>
+
+                        <h3>
+                            Itens do orçamento
+                        </h3>
+
+                    </div>
+
+                </div>
+
+
+                <div class="visualizar-itens-wrapper">
+
+                    <table class="visualizar-itens-tabela">
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    Item
+                                </th>
+
+                                <th>
+                                    Qtd.
+                                </th>
+
+                                <th>
+                                    Unitário
+                                </th>
+
+                                <th>
+                                    Subtotal
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody id="visualizar-itens">
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+
+            <!-- TOTAL -->
+
+            <div class="visualizar-total">
+
+                <span>
+                    Total
+                </span>
+
+                <strong id="visualizar-total">
+                    R$ 0,00
+                </strong>
+
+            </div>
+
+
+            <!-- AÇÕES -->
+
+            <div class="modal-actions">
+
+                <button
+                    type="button"
+                    class="button button-secondary"
+                    id="cancelar-visualizacao"
+                >
+                    Fechar
+                </button>
+
+
+                <button
+                    type="button"
+                    class="button button-primary"
+                    id="gerar-pdf"
+                >
+                    Gerar PDF
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ========================================
+         MODAL — NOVO / EDITAR ORÇAMENTO
+    ======================================== -->
+
+    <div
+        class="modal-overlay"
+        id="modal-orcamento"
+        aria-hidden="true"
+    >
+
+        <div
+            class="modal"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="modal-titulo"
+        >
+
+            <div class="modal-header">
+
+                <div>
+
+                    <p class="modal-eyebrow">
+                        OrçaPro
+                    </p>
+
+                    <h2 id="modal-titulo">
+                        Novo orçamento
+                    </h2>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="modal-close"
+                    id="fechar-modal"
+                    aria-label="Fechar"
+                >
+                    ×
+                </button>
+
+            </div>
+
+
+            <form id="form-orcamento">
+
+                <div class="form-group">
+
+                    <label for="cliente">
+                        Cliente
+                    </label>
+
+                    <input
+                        type="text"
+                        id="cliente"
+                        name="cliente"
+                        placeholder="Nome do cliente"
+                        autocomplete="name"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label for="data">
+                            Data
+                        </label>
+
+                        <input
+                            type="date"
+                            id="data"
+                            name="data"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="status">
+                            Status
+                        </label>
+
+                        <select
+                            id="status"
+                            name="status"
+                            required
+                        >
+
+                            <option value="Em aberto">
+                                Em aberto
+                            </option>
+
+                            <option value="Aprovado">
+                                Aprovado
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ========================================
+                     ITENS DO ORÇAMENTO
+                ======================================== -->
+
+                <div class="quote-items">
+
+                    <div class="quote-items-header">
+
+                        <div>
+
+                            <p class="modal-eyebrow">
+                                Composição
+                            </p>
+
+                            <h3>
+                                Itens do orçamento
+                            </h3>
+
+                        </div>
+
+
+                        <button
+                            type="button"
+                            class="button button-secondary"
+                            id="adicionar-item"
+                        >
+                            + Adicionar item
+                        </button>
+
+                    </div>
+
+
+                    <div
+                        class="quote-items-list"
+                        id="itens-orcamento"
+                    >
+                    </div>
+
+
+                    <div class="quote-total">
+
+                        <span>
+                            Total do orçamento
+                        </span>
+
+                        <strong id="total-orcamento">
+                            R$ 0,00
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="modal-actions">
+
+                    <button
+                        type="button"
+                        class="button button-secondary"
+                        id="cancelar-modal"
+                    >
+                        Cancelar
+                    </button>
+
+
+                    <button
+                        type="submit"
+                        class="button button-primary"
+                    >
+                        Salvar orçamento
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <!-- Bibliotecas para geração de PDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
+
+    <script src="js/orcamentos.js"></script>
+
+</body>
+
+</html>

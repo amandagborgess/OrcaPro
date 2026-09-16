@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="OrçaPro — sistema de gerenciamento de orçamentos para pequenos negócios."
+    >
+
+    <title>OrçaPro | Dashboard</title>
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- ========================================
+         SIDEBAR
+    ======================================== -->
+
+    <aside class="sidebar">
+
+        <div class="sidebar-logo">
+
+            <a href="index.html">
+                Orça<span>Pro</span>
+            </a>
+
+        </div>
+
+
+        <nav
+            class="sidebar-nav"
+            aria-label="Navegação principal"
+        >
+
+            <ul>
+
+                <li>
+
+                    <a
+                        href="index.html"
+                        class="nav-link active"
+                        aria-current="page"
+                    >
+
+                        <span
+                            class="nav-icon"
+                            aria-hidden="true"
+                        >
+                            ▦
+                        </span>
+
+                        <span>
+                            Dashboard
+                        </span>
+
+                    </a>
+
+                </li>
+
+
+                <li>
+
+                    <a
+                        href="orcamentos.html"
+                        class="nav-link"
+                    >
+
+                        <span
+                            class="nav-icon"
+                            aria-hidden="true"
+                        >
+                            ▤
+                        </span>
+
+                        <span>
+                            Orçamentos
+                        </span>
+
+                    </a>
+
+                </li>
+
+
+                <li>
+
+                    <a
+                        href="clientes.html"
+                        class="nav-link"
+                    >
+
+                        <span
+                            class="nav-icon"
+                            aria-hidden="true"
+                        >
+                            ♙
+                        </span>
+
+                        <span>
+                            Clientes
+                        </span>
+
+                    </a>
+
+                </li>
+
+
+                <li>
+
+                    <a
+                        href="materiais.html"
+                        class="nav-link"
+                    >
+
+                        <span
+                            class="nav-icon"
+                            aria-hidden="true"
+                        >
+                            ▥
+                        </span>
+
+                        <span>
+                            Materiais
+                        </span>
+
+                    </a>
+
+                </li>
+
+            </ul>
+
+        </nav>
+
+
+        <div class="sidebar-bottom">
+
+            <a
+                href="#"
+                class="nav-link"
+            >
+
+                <span
+                    class="nav-icon"
+                    aria-hidden="true"
+                >
+                    ⚙
+                </span>
+
+                <span>
+                    Configurações
+                </span>
+
+            </a>
+
+        </div>
+
+    </aside>
+
+
+
+    <!-- ========================================
+         CONTEÚDO PRINCIPAL
+    ======================================== -->
+
+    <main class="main-content">
+
+
+        <!-- ========================================
+             HEADER
+        ======================================== -->
+
+        <header class="topbar">
+
+            <div class="topbar-title">
+
+                <p class="greeting">
+                    Olá, Amanda 👋
+                </p>
+
+                <h1>
+                    Dashboard
+                </h1>
+
+            </div>
+
+
+            <div class="topbar-user">
+
+                <div
+                    class="user-avatar"
+                    aria-hidden="true"
+                >
+                    A
+                </div>
+
+                <div class="user-info">
+
+                    <strong>
+                        Amanda
+                    </strong>
+
+                    <span>
+                        Administrador
+                    </span>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+
+        <!-- ========================================
+             DASHBOARD
+        ======================================== -->
+
+        <section class="dashboard">
+
+
+            <div class="dashboard-heading">
+
+                <div>
+
+                    <h2>
+                        Visão geral
+                    </h2>
+
+                    <p>
+                        Acompanhe seus orçamentos e resultados.
+                    </p>
+
+                </div>
+
+
+                <a
+                    href="orcamentos.html"
+                    class="button button-primary"
+                    id="novo-orcamento"
+                >
+                    + Novo orçamento
+                </a>
+
+            </div>
+
+
+
+            <!-- ========================================
+                 CARDS
+            ======================================== -->
+
+            <div class="stats-grid">
+
+
+                <article class="stat-card">
+
+                    <div class="stat-card-header">
+
+                        <span>
+                            Total de orçamentos
+                        </span>
+
+                        <span
+                            class="stat-icon"
+                            aria-hidden="true"
+                        >
+                            ▤
+                        </span>
+
+                    </div>
+
+                    <strong
+                        class="stat-value"
+                        id="total-orcamentos"
+                    >
+                        0
+                    </strong>
+
+                    <span class="stat-description">
+                        Orçamentos cadastrados
+                    </span>
+
+                </article>
+
+
+
+                <article class="stat-card">
+
+                    <div class="stat-card-header">
+
+                        <span>
+                            Em aberto
+                        </span>
+
+                        <span
+                            class="stat-icon"
+                            aria-hidden="true"
+                        >
+                            ◷
+                        </span>
+
+                    </div>
+
+                    <strong
+                        class="stat-value"
+                        id="orcamentos-abertos"
+                    >
+                        0
+                    </strong>
+
+                    <span class="stat-description">
+                        Aguardando resposta
+                    </span>
+
+                </article>
+
+
+
+                <article class="stat-card">
+
+                    <div class="stat-card-header">
+
+                        <span>
+                            Aprovados
+                        </span>
+
+                        <span
+                            class="stat-icon"
+                            aria-hidden="true"
+                        >
+                            ✓
+                        </span>
+
+                    </div>
+
+                    <strong
+                        class="stat-value"
+                        id="orcamentos-aprovados"
+                    >
+                        0
+                    </strong>
+
+                    <span class="stat-description">
+                        Orçamentos aprovados
+                    </span>
+
+                </article>
+
+
+
+                <article class="stat-card">
+
+                    <div class="stat-card-header">
+
+                        <span>
+                            Valor aprovado
+                        </span>
+
+                        <span
+                            class="stat-icon"
+                            aria-hidden="true"
+                        >
+                            R$
+                        </span>
+
+                    </div>
+
+                    <strong
+                        class="stat-value"
+                        id="valor-aprovado"
+                    >
+                        R$ 0,00
+                    </strong>
+
+                    <span class="stat-description">
+                        Total em vendas
+                    </span>
+
+                </article>
+
+            </div>
+
+
+
+            <!-- ========================================
+                 ORÇAMENTOS RECENTES
+            ======================================== -->
+
+            <section class="recent-quotes">
+
+
+                <div class="section-header">
+
+                    <div>
+
+                        <h2>
+                            Orçamentos recentes
+                        </h2>
+
+                        <p>
+                            Confira os últimos orçamentos cadastrados.
+                        </p>
+
+                    </div>
+
+
+                    <a
+                        href="orcamentos.html"
+                        class="view-all"
+                    >
+                        Ver todos →
+                    </a>
+
+                </div>
+
+
+
+                <div class="table-wrapper">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    Nº
+                                </th>
+
+                                <th>
+                                    Cliente
+                                </th>
+
+                                <th>
+                                    Data
+                                </th>
+
+                                <th>
+                                    Valor
+                                </th>
+
+                                <th>
+                                    Status
+                                </th>
+
+                                <th>
+                                    Ações
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody id="orcamentos-lista">
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </section>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- ========================================
+         MODAL — NOVO ORÇAMENTO
+    ======================================== -->
+
+    <div
+        class="modal-overlay"
+        id="modal-orcamento"
+        aria-hidden="true"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="titulo-modal-orcamento"
+    >
+
+        <div class="modal">
+
+
+            <div class="modal-header">
+
+                <div>
+
+                    <h2 id="titulo-modal-orcamento">
+                        Novo orçamento
+                    </h2>
+
+                    <p>
+                        Cadastre um novo orçamento para seu cliente.
+                    </p>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="modal-close"
+                    id="fechar-modal"
+                    aria-label="Fechar modal"
+                >
+                    ×
+                </button>
+
+            </div>
+
+
+
+            <form id="form-orcamento">
+
+
+                <div class="form-group">
+
+                    <label for="cliente">
+                        Cliente
+                    </label>
+
+                    <input
+                        type="text"
+                        id="cliente"
+                        name="cliente"
+                        placeholder="Nome do cliente"
+                        autocomplete="name"
+                        required
+                    >
+
+                </div>
+
+
+
+                <div class="form-row">
+
+
+                    <div class="form-group">
+
+                        <label for="data">
+                            Data
+                        </label>
+
+                        <input
+                            type="date"
+                            id="data"
+                            name="data"
+                            required
+                        >
+
+                    </div>
+
+
+
+                    <div class="form-group">
+
+                        <label for="valor">
+                            Valor
+                        </label>
+
+                        <input
+                            type="number"
+                            id="valor"
+                            name="valor"
+                            placeholder="0,00"
+                            min="0"
+                            step="0.01"
+                            inputmode="decimal"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label for="status">
+                        Status
+                    </label>
+
+                    <select
+                        id="status"
+                        name="status"
+                        required
+                    >
+
+                        <option value="Em aberto">
+                            Em aberto
+                        </option>
+
+                        <option value="Aprovado">
+                            Aprovado
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+
+                <div class="modal-actions">
+
+                    <button
+                        type="button"
+                        class="button button-secondary"
+                        id="cancelar-modal"
+                    >
+                        Cancelar
+                    </button>
+
+
+                    <button
+                        type="submit"
+                        class="button button-primary"
+                    >
+                        Salvar orçamento
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ========================================
+         MODAL — VISUALIZAR ORÇAMENTO
+    ======================================== -->
+
+    <div
+        class="modal-overlay"
+        id="modal-visualizar"
+        aria-hidden="true"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="titulo-modal-visualizar"
+    >
+
+        <div class="modal">
+
+
+            <div class="modal-header">
+
+                <div>
+
+                    <h2 id="titulo-modal-visualizar">
+                        Detalhes do orçamento
+                    </h2>
+
+                    <p>
+                        Confira as informações deste orçamento.
+                    </p>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="modal-close"
+                    id="fechar-visualizacao"
+                    aria-label="Fechar modal"
+                >
+                    ×
+                </button>
+
+            </div>
+
+
+
+            <div class="quote-details">
+
+
+                <div class="detail-item">
+
+                    <span class="detail-label">
+                        Número
+                    </span>
+
+                    <strong id="visualizar-id">
+                        —
+                    </strong>
+
+                </div>
+
+
+
+                <div class="detail-item">
+
+                    <span class="detail-label">
+                        Cliente
+                    </span>
+
+                    <strong id="visualizar-cliente">
+                        —
+                    </strong>
+
+                </div>
+
+
+
+                <div class="detail-item">
+
+                    <span class="detail-label">
+                        Data
+                    </span>
+
+                    <strong id="visualizar-data">
+                        —
+                    </strong>
+
+                </div>
+
+
+
+                <div class="detail-item">
+
+                    <span class="detail-label">
+                        Valor
+                    </span>
+
+                    <strong id="visualizar-valor">
+                        R$ 0,00
+                    </strong>
+
+                </div>
+
+
+
+                <div class="detail-item">
+
+                    <span class="detail-label">
+                        Status
+                    </span>
+
+                    <span
+                        class="status"
+                        id="visualizar-status"
+                    >
+                        —
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="modal-actions">
+
+                <button
+                    type="button"
+                    class="button button-secondary"
+                    id="fechar-detalhes"
+                >
+                    Fechar
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <script src="js/app.js"></script>
+
+</body>
+
+</html>
