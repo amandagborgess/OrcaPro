@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Fundo -->
+  <rect width="64" height="64" rx="14" fill="#111827"/>
+
+  <!-- Tela do computador -->
+  <rect
+    x="10"
+    y="9"
+    width="44"
+    height="34"
+    rx="4"
+    fill="#1f2937"
+    stroke="#9ca3af"
+    stroke-width="2.5"
+  />
+
+  <!-- Conteúdo da tela -->
+  <rect
+    x="15"
+    y="14"
+    width="34"
+    height="24"
+    rx="2"
+    fill="#f9fafb"
+  />
+
+  <!-- Linhas do orçamento -->
+  <rect x="19" y="18" width="13" height="2.5" rx="1.25" fill="#374151"/>
+  <rect x="19" y="23" width="20" height="2.5" rx="1.25" fill="#9ca3af"/>
+  <rect x="19" y="28" width="16" height="2.5" rx="1.25" fill="#9ca3af"/>
+
+  <!-- Destaque verde -->
+  <rect x="38" y="18" width="7" height="2.5" rx="1.25" fill="#4fb394"/>
+  <rect x="38" y="23" width="7" height="2.5" rx="1.25" fill="#4fb394"/>
+  <rect x="38" y="28" width="7" height="2.5" rx="1.25" fill="#4fb394"/>
+
+  <!-- Base do computador -->
+  <path
+    d="M7 45h50l-5 7H12l-5-7z"
+    fill="#9ca3af"
+    stroke="#6b7280"
+    stroke-width="1.5"
+    stroke-linejoin="round"
+  />
+
+  <!-- Teclado -->
+  <path
+    d="M18 46h28l2 3H16l2-3z"
+    fill="#374151"
+  />
+
+  <!-- Detalhe central -->
+  <rect
+    x="28"
+    y="47"
+    width="8"
+    height="1.5"
+    rx=".75"
+    fill="#4fb394"
+  />
+</svg>
